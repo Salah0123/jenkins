@@ -16,4 +16,10 @@ pipeline{
             }
         }
     }
+    post {
+        success {
+            slackSend channel: '#ci_cd', message: "started ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", teamDomain: 'hossam-6vy2951', tokenCredentialId: 'slack-notification'
+        }
+    }
+
 }
